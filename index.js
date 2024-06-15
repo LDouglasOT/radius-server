@@ -15,6 +15,8 @@ const users = { 'testuser': 'testpass' };
 // Endpoint to add users (for demonstration)
 app.post('/add-user', (req, res) => {
     const { username, password } = req.body;
+    console.log(username)
+    console.log(password)
     if (username && password) {
         users[username] = password;
         res.status(201).send('User added');
@@ -25,6 +27,7 @@ app.post('/add-user', (req, res) => {
 
 // Basic authentication handler
 function myLogin(req, res) {
+    console.log(req)
     const username = req.get('User-Name');
     const password = req.get('User-Password');
     if (users[username] && users[username] === password) {
