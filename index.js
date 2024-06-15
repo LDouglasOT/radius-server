@@ -1,5 +1,5 @@
 const express = require('express');
-const RADIUS = require('isc-radius');
+const RADIUS = require('./package/isc-radius-master');
 
 // Create Express app
 const app = express();
