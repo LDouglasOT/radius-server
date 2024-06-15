@@ -25,7 +25,7 @@ function defaultResponse(type, req)
 
 	if (type === 'auth') {
 		if (req.code === Code.ACCESS_REQUEST) {
-			res_code = Code.ACCESS_REJECT;
+			res_code = Code.ACCESS_ACCEPT;
 		} else if (req.code === Code.SERVER_STATUS) {
 			res_code = Code.ACCESS_ACCEPT;
 		}
