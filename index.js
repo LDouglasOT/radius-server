@@ -39,7 +39,7 @@ function myLogin(req, res) {
     }
 }
 
-// IP defaults handler
+
 function ipDefaults(req, res) {
     if (res.code.toString() === 'Access-Accept') {
         if (!res.has('Framed-IP-Address')) {
@@ -51,11 +51,13 @@ function ipDefaults(req, res) {
     }
 }
 
+// sudo netstat -tulpn | grep :3000
 
 const radiusServer = new RADIUS.Server({
   secret: 'your_secret',  // Set your shared secret
   handlers: [myLogin, ipDefaults]
 });
+radiusServer.addClient('41.210.147.227','your_secret')
 
 radiusServer.start(RADIUS_PORT, () => {
   console.log(`RADIUS server listening on port ${RADIUS_PORT}`);
